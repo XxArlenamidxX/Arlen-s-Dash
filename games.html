@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arlen's Dash - Games</title>
+  <link rel="icon" href="./favicon.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color-light: #f8f9fa;
+      --text-color-light: #212529;
+      --bg-color-dark: #121212;
+      --text-color-dark: #f8f9fa;
+      --accent: #0d6efd;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color-light);
+      color: var(--text-color-light);
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    body.dark {
+      background-color: var(--bg-color-dark);
+      color: var(--text-color-dark);
+    }
+
+    .navbar {
+      transition: background-color 0.5s ease;
+    }
+
+    body:not(.dark) .navbar {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    body.dark .navbar {
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: inherit;
+    }
+
+    .navbar-brand img {
+      width: 64px;
+      height: 64px;
+      margin-right: 10px;
+    }
+
+    .navbar-nav .nav-link {
+      color: inherit;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .navbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .theme-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-switch .form-check-input {
+      width: 3rem;
+      height: 1.5rem;
+      background-color: #888;
+      border: none;
+      cursor: pointer;
+    }
+
+    .form-switch .form-check-input:checked {
+      background-color: #f0ad4e;
+    }
+
+    .main-text {
+      text-align: center;
+      margin-top: 120px;
+      font-size: 3.5rem;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .game-card {
+      border-radius: 12px;
+      padding: 1.5rem;
+      background-color: #ffffff10;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .game-card h5 {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .game-card p {
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+
+    body:not(.dark) .main-text {
+      color: #212529;
+    }
+
+    body.dark .main-text {
+      color: #f8f9fa;
+    }
+
+    body:not(.dark) .game-card {
+      color: #212529;
+      background-color: #ffffff;
+    }
+
+    body.dark .game-card {
+      color: #f8f9fa;
+      background-color: #1e1e1e;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg position-relative">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./favicon.png" alt="Logo">
+        Arlen's Dash
+      </a>
+      <div class="navbar-center">
+        <div class="theme-switch">
+          <span>🌞</span>
+          <div class="form-check form-switch m-0">
+            <input class="form-check-input" type="checkbox" id="themeToggle" onclick="toggleTheme()">
+          </div>
+          <span>🌙</span>
+        </div>
+      </div>
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="https://minecraft.arlensdash.online" target="_blank">Minecraft Server</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">Games</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="main-text">
+    Arlen's Dash
+  </div>
+
+  <div class="games-grid">
+    <div class="game-card">
+      <h5>Run 3</h5>
+      <p>Run 3 is an addictive, endless runner game where you guide a character through a series of increasingly challenging, space-based platforms</p>
+      <a href="https://player03.com/run/3/beta/"><button type="button" class="btn btn-success">Play</button></a>
+    </div>
+    <div class="game-card">
+      <h5>Geometry Dash</h5>
+      <p>Geometry Dash is a rhythm-based action platformer game where players navigate geometric shapes through levels filled with obstacles and music, often using one-touch gameplay</p>
+      <a href="geometrydashlite.io"><button type="button" class="btn btn-success">Play</button></a>
+    </div>
+    <div class="game-card">
+      <h5>Minecraft</h5>
+      <p>Minecraft is a sandbox video game where players can build, explore, and survive in a blocky, 3D world</p>
+      <a href="https://minecraft.arlensdash.online"><button type="button" class="btn btn-success">Play</button></a>
+    </div>
+    <div class="game-card">
+      <h5>Gun Mayhem</h5>
+      <p>"Gun Mayhem" is a series of arena-based platform shooter games where players aim to knock their opponents off the map using various weapons</p>
+      <a href="https://www.gameflare.com/embed/gun-mayhem/"><button type="button" class="btn btn-success">Play</button></a>
+    </div>
+    <div class="game-card">
+      <h5>Doodle Jump</h5>
+      <p>Doodle Jump is a mobile platforming game where the player controls a creature called the Doodler, tasked with bouncing up an endless series of platforms to reach a high score</p>
+      <a href="https://www.jopi.com/embed.php?game=doodle-jump"><button type="button" class="btn btn-success">Play</button></a>
+    </div>
+    <div class="game-card">
+      <h5>World's Hardest Game</h5>
+      <p>"The World's Hardest Game" is a browser-based Flash game known for its extreme difficulty</p>
+      <a href="https://www.gameflare.com/embed/world-s-hardest-game/"><button type="button" class="btn btn-success">Play</button></a>
+    </div>
+  </div>
+
+  <script>
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+    }
+
+    function getCookie(name) {
+      const value = "; " + document.cookie;
+      const parts = value.split("; " + name + "=");
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark');
+      document.getElementById('themeToggle').checked = isDark;
+      setCookie('theme', isDark ? 'dark' : 'light', 365);
+    }
+
+    window.onload = function() {
+      const savedTheme = getCookie('theme');
+      const themeToggle = document.getElementById('themeToggle');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+        themeToggle.checked = true;
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
